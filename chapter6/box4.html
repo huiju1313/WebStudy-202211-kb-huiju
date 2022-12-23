@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            /* display: none; 박스가 안 보이게 된다 */
+            /* display: inline-block;  inline 처럼 사용 가능하나 너비와 높이를 지정할 수 있다 */
+            position: relative; /*해줘야 왼쪽에서 100만큼 떨어진다*/
+            top: 50px;
+            left: 100px;
+            border: 1px solid black;
+            width: 300px;
+            height: 200px;
+            background-color: brown;
+        }
+        .box2 {
+            /* display: none; 박스가 안 보이게 된다 */
+            display: inline-block;
+            border: 1px solid black;
+            width: 300px;
+            height: 200px;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        웹 개발 시작하기
+    </div>
+    <div class="box2">
+        웹 개발 시작하기
+    </div>
+
+</body>
+</html>
