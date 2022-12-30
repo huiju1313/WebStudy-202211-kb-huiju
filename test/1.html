@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고희주</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        a{
+            text-decoration: none;
+        }
+        .container {
+            display: flex; /*세로정렬*/
+        }
+        /* side navigation */
+        .side-nav-bar {
+            height: 100vh; /*view height의 100%를 차지*/ /*가로는 view width = vw*/
+            top: 0px;
+            left: 0px;
+            padding: 10px;
+
+            background-color: #c4c4c4;
+        }
+        .side-nav-item {
+            height: 40px;
+            padding-bottom: 30px;
+
+            display: flex;
+        }
+        .side-nave-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .main-container {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .main-cover {
+            width: 100%;
+
+            object-fit: cover; /*가로세로 임의로 늘리지 않고 자른다*/
+        }
+
+        .main-nav-bar {
+            padding-top: 11px;
+            padding-bottom: 15px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .main-nav-item {
+            font-size: 24px;
+            color: #000;
+        }
+
+        .divider {
+            border: 1px solid #999494;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-content {
+            text-align: center;
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 32px;
+        }
+
+        .row-label {
+            text-align: right;
+            vertical-align: top;
+        }
+
+        .form-input {
+            width: 100%;
+        }
+
+        .form-textarea {
+            width: 100%;
+        }
+
+        .form-button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-btn {
+            width: 150px;
+            height: 60px;
+            font-size: 24px;
+            color: #ffffff;
+
+            background-color: #1a8fdd;
+
+            border: 0;
+            border-radius: 10px;
+        }
+    </style>
+    <script></script>
+</head>
+<body>
+    <div class="container">
+        <div class="side-nav-bar">
+            <a href="#" class="side-nav-item">
+                <img class="side-nave-icon" src="images/naver.png">
+            </a>
+            <a href="#" class="side-nav-item">
+                <img class="side-nave-icon" src="images/naver.png">
+            </a>
+            <a href="#" class="side-nav-item">
+               <img class="side-nave-icon" src="images/naver.png">
+            </a>
+            <a href="#" class="side-nav-item">
+                <img class="side-nave-icon" src="images/naver.png">
+            </a>
+            <a href="#" class="side-nav-item">
+                <img class="side-nave-icon" src="images/naver.png">
+            </a>
+       </div>
+        <div class="main-container">
+            <img class="main-cover" src="images/str.png">
+            <!-- <div class="main-cover"> -->
+            <div class="main-nav-bar">
+                <a href="#" class="main-nav-item">HOME</a>
+                <a href="#" class="main-nav-item">COFFEE</a>
+                <a href="#" class="main-nav-item">CF</a>
+                <a href="#" class="main-nav-item">PRINT</a>
+                <a href="#" class="main-nav-item">문의하기</a>
+            </div>
+            <div class="divider"></div>
+            <div class="form-container">
+                <form id="input-form" class="form-content">
+                    <h1 class="form-title">제품 문의하기</h1>
+                    <table class="form-table">
+                        <tr class="form-table-row">
+                            <td class="row-label">제목</td>
+                            <td colspan="3"><input id="title" name="title" class=form-input /></td>
+                        </tr>
+                        <tr class="form-table-row">
+                            <td class="row-label">작성자</td>
+                            <td colspan="3"><input id="writer" name="writer" class=form-input /></td>
+                        </tr>
+                        <tr class="form-table-row">
+                            <td class="row-label">답변받을 이메일</td>
+                            <td><input id="emailId" name="emailId" class=form-input /></td>
+                            <td>@</td>
+                            <td>
+                                <select id="emailAddress" name="emailAddress" class=form-select >
+                                    <option value="gmail.com" selected>gmail.com</option>
+                                    <option value="naver.com">naver.com</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr class="form-table-row">
+                            <td class="row-label">문의 내용</td>
+                            <td colspan="3"><textarea id="contents" name="contents" rows="4" class="form-textarea" ></textarea></td>
+                        </tr>
+                    </table>
+                    <div class="form-button-container">
+                        <button class="form-btn" type="button" onclick="formSubmit()">문의하기</button>
+                        <button class="form-btn" type="reset" >초기화</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        const formSubmit = () => {
+            const title = document.getElementById('title').value;
+            const writer= document.getElementById('writer').value;
+            const emailId = document.getElementById('emailId').value;
+            const contents = document.getElementById('contents').value;
+
+            console.log(title);
+
+            if (!title || !writer || !emailId || !contents ) {
+                alert('모두 입력하세요.');
+                return;
+            }
+
+            const form = document.getElementById('input-form')
+            form.action = 'https://naver.com';
+            form.method = 'GET';
+            form.submit();
+        }
+    </script>
+</body>
+</html>
